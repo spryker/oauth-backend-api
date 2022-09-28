@@ -5,16 +5,16 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Glue\OauthBackendApi\Plugin;
+namespace Spryker\Glue\OauthBackendApi\Plugin\GlueApplication;
 
 use Generated\Shared\Transfer\GlueResourceMethodCollectionTransfer;
 use Generated\Shared\Transfer\GlueResourceMethodConfigurationTransfer;
 use Spryker\Glue\GlueApplication\Plugin\GlueApplication\Backend\AbstractResourcePlugin;
-use Spryker\Glue\GlueRestApiConventionExtension\Dependency\Plugin\RestResourceInterface;
+use Spryker\Glue\GlueApplicationExtension\Dependency\Plugin\ResourceInterface;
 use Spryker\Glue\OauthBackendApi\Controller\TokenResourceController;
 use Spryker\Glue\OauthBackendApi\OauthBackendApiConfig;
 
-class TokenResource extends AbstractResourcePlugin implements RestResourceInterface
+class OauthBackendTokenResource extends AbstractResourcePlugin implements ResourceInterface
 {
     /**
      * {@inheritDoc}

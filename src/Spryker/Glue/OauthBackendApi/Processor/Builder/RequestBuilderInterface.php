@@ -5,19 +5,16 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Glue\OauthBackendApi\Processor\RequestBuilder;
+namespace Spryker\Glue\OauthBackendApi\Processor\Builder;
 
 use Generated\Shared\Transfer\GlueRequestTransfer;
 
-/**
- * @deprecated Use {@link \Spryker\Glue\OauthBackendApi\Processor\Builder\RequestBuilderInterface} instead.
- */
-interface UserRequestBuilderInterface
+interface RequestBuilderInterface
 {
     /**
      * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
      *
      * @return \Generated\Shared\Transfer\GlueRequestTransfer
      */
-    public function buildRequest(GlueRequestTransfer $glueRequestTransfer): GlueRequestTransfer;
+    public function buildUserRequest(GlueRequestTransfer $glueRequestTransfer): GlueRequestTransfer;
 }

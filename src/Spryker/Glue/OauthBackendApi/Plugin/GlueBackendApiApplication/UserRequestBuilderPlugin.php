@@ -5,22 +5,24 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Glue\OauthBackendApi\Plugin;
+namespace Spryker\Glue\OauthBackendApi\Plugin\GlueBackendApiApplication;
 
 use Generated\Shared\Transfer\GlueRequestTransfer;
 use Spryker\Glue\GlueApplicationExtension\Dependency\Plugin\RequestBuilderPluginInterface;
 use Spryker\Glue\Kernel\AbstractPlugin;
 
 /**
- * @deprecated Use {@link \Spryker\Glue\OauthBackendApi\Plugin\GlueBackendApiApplication\UserRequestBuilderPlugin} instead.
- *
  * @method \Spryker\Glue\OauthBackendApi\OauthBackendApiFactory getFactory()
  */
 class UserRequestBuilderPlugin extends AbstractPlugin implements RequestBuilderPluginInterface
 {
     /**
      * {@inheritDoc}
-     * - Sets `GlueRequestTransfer.requestUser` if the user credentials is valid.
+     * - Finds access token data using `GlueRequest`.
+     * - Extracts user identifier data from found access token data.
+     * - Maps user identifier user id to `GlueRequest.requestUser.surrogateIdentifier`.
+     * - Maps user identifier user uuid to `GlueRequest.requestUser.naturalIdentifier`.
+     * - Returns empty `GlueRequest.requestUser` when access token data or user identifier are not exist or invalid.
      *
      * @api
      *
@@ -30,6 +32,6 @@ class UserRequestBuilderPlugin extends AbstractPlugin implements RequestBuilderP
      */
     public function build(GlueRequestTransfer $glueRequestTransfer): GlueRequestTransfer
     {
-        return $this->getFactory()->createUserRequestBuilder()->buildRequest($glueRequestTransfer);
+        return $this->getFactory()->createRequestBuilder()->buildUserRequest($glueRequestTransfer);
     }
 }

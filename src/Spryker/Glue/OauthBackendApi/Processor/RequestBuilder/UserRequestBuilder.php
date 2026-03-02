@@ -44,11 +44,6 @@ class UserRequestBuilder implements UserRequestBuilderInterface
      */
     protected $accessTokenExtractor;
 
-    /**
-     * @param \Spryker\Glue\OauthBackendApi\Dependency\Service\OauthBackendApiToOauthServiceInterface $oauthService
-     * @param \Spryker\Glue\OauthBackendApi\Dependency\Service\OauthBackendApiToUtilEncodingServiceInterface $utilEncodingService
-     * @param \Spryker\Glue\OauthBackendApi\Processor\Extractor\AccessTokenExtractorInterface $accessTokenExtractor
-     */
     public function __construct(
         OauthBackendApiToOauthServiceInterface $oauthService,
         OauthBackendApiToUtilEncodingServiceInterface $utilEncodingService,
@@ -59,11 +54,6 @@ class UserRequestBuilder implements UserRequestBuilderInterface
         $this->accessTokenExtractor = $accessTokenExtractor;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueRequestTransfer
-     */
     public function buildRequest(GlueRequestTransfer $glueRequestTransfer): GlueRequestTransfer
     {
         $oauthAccessTokenDataTransfer = $this->findUserByAccessToken($glueRequestTransfer);
@@ -75,11 +65,6 @@ class UserRequestBuilder implements UserRequestBuilderInterface
         return $this->mapRequestUserTransfer($oauthAccessTokenDataTransfer, $glueRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthAccessTokenDataTransfer|null
-     */
     protected function findUserByAccessToken(GlueRequestTransfer $glueRequestTransfer): ?OauthAccessTokenDataTransfer
     {
         $accessTokenData = $this->accessTokenExtractor->extract($glueRequestTransfer);
@@ -90,12 +75,6 @@ class UserRequestBuilder implements UserRequestBuilderInterface
         return $this->oauthService->extractAccessTokenData($accessTokenData[1]);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthAccessTokenDataTransfer $oauthAccessTokenDataTransfer
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueRequestTransfer
-     */
     protected function mapRequestUserTransfer(
         OauthAccessTokenDataTransfer $oauthAccessTokenDataTransfer,
         GlueRequestTransfer $glueRequestTransfer

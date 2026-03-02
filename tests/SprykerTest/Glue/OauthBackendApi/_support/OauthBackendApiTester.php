@@ -35,9 +35,6 @@ class OauthBackendApiTester extends Actor
      */
     public const AUTHORIZATION = 'authorization';
 
-    /**
-     * @return \Spryker\Glue\OauthBackendApi\Plugin\GlueApplication\BackendApiAccessTokenValidatorPlugin
-     */
     public function createBackendApiAccessTokenValidatorPlugin(): BackendApiAccessTokenValidatorPlugin
     {
         return new BackendApiAccessTokenValidatorPlugin();

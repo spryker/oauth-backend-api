@@ -33,9 +33,6 @@ class UserRequestBuilderPluginTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testUserFinderWhenAuthorizationHeaderNotExist(): void
     {
         //Act
@@ -45,9 +42,6 @@ class UserRequestBuilderPluginTest extends Unit
         $this->assertEmpty($glueRequestTransfer->getRequestUser());
     }
 
-    /**
-     * @return void
-     */
     public function testUserFinderWhenAccessTokenIsEmpty(): void
     {
         //Arrange
@@ -61,9 +55,6 @@ class UserRequestBuilderPluginTest extends Unit
         $this->assertEmpty($glueRequestTransfer->getRequestUser());
     }
 
-    /**
-     * @return void
-     */
     public function testUserFinderWithWrongAccessToken(): void
     {
         //Arrange
@@ -77,9 +68,6 @@ class UserRequestBuilderPluginTest extends Unit
         $this->assertEmpty($glueRequestTransfer->getRequestUser());
     }
 
-    /**
-     * @return void
-     */
     public function testUserFinderWhenAccessTokenIsValid(): void
     {
         //Arrange
@@ -94,11 +82,6 @@ class UserRequestBuilderPluginTest extends Unit
         $this->assertSame(1, $glueRequestTransfer->getRequestUser()->getSurrogateIdentifier());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueRequestTransfer
-     */
     protected function findUser(GlueRequestTransfer $glueRequestTransfer): GlueRequestTransfer
     {
         $accessTokenUserFinderPlugin = new UserRequestBuilderPlugin();

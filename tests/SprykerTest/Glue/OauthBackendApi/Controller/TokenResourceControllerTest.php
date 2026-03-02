@@ -32,9 +32,6 @@ use Spryker\Glue\OauthBackendApi\Processor\Logger\AuditLogger;
  */
 class TokenResourceControllerTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testPostActionAddsUnsuccessfulLoginAuditLogWhenLoginAttemptUnsuccessful(): void
     {
         // Arrange
@@ -44,9 +41,6 @@ class TokenResourceControllerTest extends Unit
         $tokenResourceControllerMock->postAction(new ApiTokenAttributesTransfer(), new GlueRequestTransfer());
     }
 
-    /**
-     * @return void
-     */
     public function testPostActionAddsSuccessfulLoginAuditLogOnSuccessfulLogin(): void
     {
         // Arrange

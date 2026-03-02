@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\OauthAccessTokenValidationResponseTransfer;
 
 interface OauthBackendApiToOauthFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OauthAccessTokenValidationRequestTransfer $oauthAccessTokenValidationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthAccessTokenValidationResponseTransfer
-     */
     public function validateAccessToken(
         OauthAccessTokenValidationRequestTransfer $oauthAccessTokenValidationRequestTransfer
     ): OauthAccessTokenValidationResponseTransfer;

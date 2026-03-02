@@ -25,11 +25,6 @@ class OauthBackendApiToAuthenticationFacadeBridge implements OauthBackendApiToAu
         $this->authenticationFacade = $authenticationFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GlueAuthenticationRequestTransfer $glueAuthenticationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueAuthenticationResponseTransfer
-     */
     public function authenticate(GlueAuthenticationRequestTransfer $glueAuthenticationRequestTransfer): GlueAuthenticationResponseTransfer
     {
         return $this->authenticationFacade->authenticate($glueAuthenticationRequestTransfer);

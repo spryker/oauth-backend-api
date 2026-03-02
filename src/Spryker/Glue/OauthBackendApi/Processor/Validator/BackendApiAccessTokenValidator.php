@@ -29,10 +29,6 @@ class BackendApiAccessTokenValidator implements BackendApiAccessTokenValidatorIn
      */
     protected $backendAccessTokenExtractor;
 
-    /**
-     * @param \Spryker\Glue\OauthBackendApi\Dependency\Facade\OauthBackendApiToOauthFacadeInterface $oauthFacade
-     * @param \Spryker\Glue\OauthBackendApi\Processor\Extractor\BackendAccessTokenExtractorInterface $backendAccessTokenExtractor
-     */
     public function __construct(
         OauthBackendApiToOauthFacadeInterface $oauthFacade,
         BackendAccessTokenExtractorInterface $backendAccessTokenExtractor
@@ -41,11 +37,6 @@ class BackendApiAccessTokenValidator implements BackendApiAccessTokenValidatorIn
         $this->backendAccessTokenExtractor = $backendAccessTokenExtractor;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueRequestValidationTransfer
-     */
     public function validate(GlueRequestTransfer $glueRequestTransfer): GlueRequestValidationTransfer
     {
         $glueRequestValidationTransfer = new GlueRequestValidationTransfer();

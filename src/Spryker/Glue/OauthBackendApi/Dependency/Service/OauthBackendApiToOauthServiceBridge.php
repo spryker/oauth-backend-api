@@ -24,11 +24,6 @@ class OauthBackendApiToOauthServiceBridge implements OauthBackendApiToOauthServi
         $this->oauthService = $oauthService;
     }
 
-    /**
-     * @param string $accessToken
-     *
-     * @return \Generated\Shared\Transfer\OauthAccessTokenDataTransfer
-     */
     public function extractAccessTokenData(string $accessToken): OauthAccessTokenDataTransfer
     {
         return $this->oauthService->extractAccessTokenData($accessToken);

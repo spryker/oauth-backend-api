@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\OauthAccessTokenDataTransfer;
 
 interface GlueRequestMapperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OauthAccessTokenDataTransfer $oauthAccessTokenDataTransfer
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueRequestTransfer
-     */
     public function mapOauthAccessTokenDataTransferToGlueRequestTransfer(
         OauthAccessTokenDataTransfer $oauthAccessTokenDataTransfer,
         GlueRequestTransfer $glueRequestTransfer

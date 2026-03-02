@@ -15,10 +15,5 @@ use Generated\Shared\Transfer\GlueRequestValidationTransfer;
  */
 interface AccessTokenValidatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueRequestValidationTransfer
-     */
     public function validate(GlueRequestTransfer $glueRequestTransfer): GlueRequestValidationTransfer;
 }

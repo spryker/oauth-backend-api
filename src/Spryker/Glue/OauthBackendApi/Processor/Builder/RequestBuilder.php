@@ -35,11 +35,6 @@ class RequestBuilder implements RequestBuilderInterface
      */
     protected AccessTokenExtractorInterface $accessTokenExtractor;
 
-    /**
-     * @param \Spryker\Glue\OauthBackendApi\Dependency\Service\OauthBackendApiToOauthServiceInterface $oauthService
-     * @param \Spryker\Glue\OauthBackendApi\Processor\Mapper\GlueRequestMapperInterface $glueRequestMapper
-     * @param \Spryker\Glue\OauthBackendApi\Processor\Extractor\AccessTokenExtractorInterface $accessTokenExtractor
-     */
     public function __construct(
         OauthBackendApiToOauthServiceInterface $oauthService,
         GlueRequestMapperInterface $glueRequestMapper,
@@ -50,11 +45,6 @@ class RequestBuilder implements RequestBuilderInterface
         $this->accessTokenExtractor = $accessTokenExtractor;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueRequestTransfer
-     */
     public function buildUserRequest(GlueRequestTransfer $glueRequestTransfer): GlueRequestTransfer
     {
         $oauthAccessTokenDataTransfer = $this->findUserByAccessToken($glueRequestTransfer);
@@ -66,11 +56,6 @@ class RequestBuilder implements RequestBuilderInterface
         return $this->glueRequestMapper->mapOauthAccessTokenDataTransferToGlueRequestTransfer($oauthAccessTokenDataTransfer, $glueRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthAccessTokenDataTransfer|null
-     */
     protected function findUserByAccessToken(GlueRequestTransfer $glueRequestTransfer): ?OauthAccessTokenDataTransfer
     {
         $accessTokenData = $this->accessTokenExtractor->extract($glueRequestTransfer);

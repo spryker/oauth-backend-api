@@ -29,11 +29,6 @@ class UserRequestValidator implements UserRequestValidatorInterface
         $this->userRequestValidationPreCheckerPlugins = $userRequestValidationPreCheckerPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueRequestValidationTransfer
-     */
     public function validate(GlueRequestTransfer $glueRequestTransfer): GlueRequestValidationTransfer
     {
         $glueRequestValidationTransfer = (new GlueRequestValidationTransfer())
@@ -57,12 +52,6 @@ class UserRequestValidator implements UserRequestValidatorInterface
         return $glueRequestValidationTransfer->setIsValid(true);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GlueRequestValidationTransfer $glueRequestValidationTransfer
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueRequestValidationTransfer
-     */
     protected function executeUserRequestValidationPreCheckerPlugins(
         GlueRequestValidationTransfer $glueRequestValidationTransfer,
         GlueRequestTransfer $glueRequestTransfer
@@ -77,20 +66,12 @@ class UserRequestValidator implements UserRequestValidatorInterface
         return $glueRequestValidationTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return bool
-     */
     protected function headerAuthorizationExist(GlueRequestTransfer $glueRequestTransfer): bool
     {
         return $glueRequestTransfer->getMeta() &&
             array_key_exists(OauthBackendApiConfig::HEADER_AUTHORIZATION, $glueRequestTransfer->getMeta());
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\GlueErrorTransfer
-     */
     protected function createGlueError(): GlueErrorTransfer
     {
         return (new GlueErrorTransfer())

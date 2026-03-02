@@ -11,17 +11,7 @@ use Generated\Shared\Transfer\OauthRequestTransfer;
 
 interface AuditLoggerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return void
-     */
     public function addFailedLoginAuditLog(OauthRequestTransfer $oauthRequestTransfer): void;
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return void
-     */
     public function addSuccessfulLoginAuditLog(OauthRequestTransfer $oauthRequestTransfer): void;
 }

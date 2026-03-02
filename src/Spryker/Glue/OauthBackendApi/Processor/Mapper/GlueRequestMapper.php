@@ -29,20 +29,11 @@ class GlueRequestMapper implements GlueRequestMapperInterface
      */
     protected OauthBackendApiToUtilEncodingServiceInterface $utilEncodingService;
 
-    /**
-     * @param \Spryker\Glue\OauthBackendApi\Dependency\Service\OauthBackendApiToUtilEncodingServiceInterface $utilEncodingService
-     */
     public function __construct(OauthBackendApiToUtilEncodingServiceInterface $utilEncodingService)
     {
         $this->utilEncodingService = $utilEncodingService;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthAccessTokenDataTransfer $oauthAccessTokenDataTransfer
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueRequestTransfer
-     */
     public function mapOauthAccessTokenDataTransferToGlueRequestTransfer(
         OauthAccessTokenDataTransfer $oauthAccessTokenDataTransfer,
         GlueRequestTransfer $glueRequestTransfer

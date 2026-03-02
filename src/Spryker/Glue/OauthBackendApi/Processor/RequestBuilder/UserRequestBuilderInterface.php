@@ -14,10 +14,5 @@ use Generated\Shared\Transfer\GlueRequestTransfer;
  */
 interface UserRequestBuilderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueRequestTransfer
-     */
     public function buildRequest(GlueRequestTransfer $glueRequestTransfer): GlueRequestTransfer;
 }

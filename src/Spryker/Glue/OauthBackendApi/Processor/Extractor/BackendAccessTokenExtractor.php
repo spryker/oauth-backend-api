@@ -26,11 +26,6 @@ class BackendAccessTokenExtractor implements BackendAccessTokenExtractorInterfac
         return $this->extractTokenData($glueRequestTransfer->getMeta()[OauthBackendApiConfig::HEADER_AUTHORIZATION][0]);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return bool
-     */
     public function isAuthorizationHeaderSet(GlueRequestTransfer $glueRequestTransfer): bool
     {
         return ($glueRequestTransfer->getMeta() &&

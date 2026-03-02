@@ -45,9 +45,6 @@ class UserRequestBuilderPluginTest extends Unit
      */
     protected OauthBackendApiTester $tester;
 
-    /**
-     * @return void
-     */
     public function testUserRequestBuilderReturnsEmptyRequestUserWhenAuthorizationTokenNotProvided(): void
     {
         // Act
@@ -57,9 +54,6 @@ class UserRequestBuilderPluginTest extends Unit
         $this->assertEmpty($glueRequestTransfer->getRequestUser());
     }
 
-    /**
-     * @return void
-     */
     public function testUserRequestBuilderReturnsEmptyRequestUserWhenAuthorizationTokenIsWrong(): void
     {
         // Arrange
@@ -72,9 +66,6 @@ class UserRequestBuilderPluginTest extends Unit
         $this->assertEmpty($glueRequestTransfer->getRequestUser());
     }
 
-    /**
-     * @return void
-     */
     public function testUserRequestBuilderReturnsNotEmptyRequestUserWhenAuthorizationTokenIsCorrect(): void
     {
         //Arrange

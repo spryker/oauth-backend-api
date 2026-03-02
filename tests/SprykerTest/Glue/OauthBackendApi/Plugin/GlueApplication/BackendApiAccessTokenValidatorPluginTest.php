@@ -34,9 +34,6 @@ class BackendApiAccessTokenValidatorPluginTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testValidateReturnsTrueWithoutToken(): void
     {
         //Act
@@ -46,9 +43,6 @@ class BackendApiAccessTokenValidatorPluginTest extends Unit
         $this->assertTrue($result->getIsValid());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateReturnsFalseWithInvalidToken(): void
     {
         //Arrange
@@ -75,9 +69,6 @@ class BackendApiAccessTokenValidatorPluginTest extends Unit
         $this->assertSame(OauthBackendApiConfig::RESPONSE_DETAIL_INVALID_ACCESS_TOKEN, $glueErrorTransfer->getMessage());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateReturnsTrueWithValidToken(): void
     {
         //Arrange

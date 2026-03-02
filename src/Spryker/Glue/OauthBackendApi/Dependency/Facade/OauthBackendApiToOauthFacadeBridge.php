@@ -25,11 +25,6 @@ class OauthBackendApiToOauthFacadeBridge implements OauthBackendApiToOauthFacade
         $this->oauthFacade = $oauthFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthAccessTokenValidationRequestTransfer $oauthAccessTokenValidationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthAccessTokenValidationResponseTransfer
-     */
     public function validateAccessToken(
         OauthAccessTokenValidationRequestTransfer $oauthAccessTokenValidationRequestTransfer
     ): OauthAccessTokenValidationResponseTransfer {

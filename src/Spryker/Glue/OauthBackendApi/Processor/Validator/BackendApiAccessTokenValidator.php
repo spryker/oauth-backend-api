@@ -50,10 +50,10 @@ class BackendApiAccessTokenValidator implements BackendApiAccessTokenValidatorIn
         if ($accessTokenData === null) {
             return $glueRequestValidationTransfer
                 ->setIsValid(false)
-                ->setStatus(Response::HTTP_FORBIDDEN)
+                ->setStatus(Response::HTTP_UNAUTHORIZED)
                 ->addError(
                     (new GlueErrorTransfer())
-                        ->setStatus(Response::HTTP_FORBIDDEN)
+                        ->setStatus(Response::HTTP_UNAUTHORIZED)
                         ->setCode(OauthBackendApiConfig::RESPONSE_CODE_FORBIDDEN)
                         ->setMessage(OauthBackendApiConfig::RESPONSE_DETAIL_MISSING_ACCESS_TOKEN),
                 );

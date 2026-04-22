@@ -66,7 +66,7 @@ class AccessTokenValidatorPluginTest extends Unit
 
         $glueErrorTransfer = $result->getErrors()->getArrayCopy()[0];
         $this->assertSame(OauthBackendApiConfig::RESPONSE_CODE_FORBIDDEN, $glueErrorTransfer->getCode());
-        $this->assertSame(Response::HTTP_FORBIDDEN, $glueErrorTransfer->getStatus());
+        $this->assertSame(Response::HTTP_UNAUTHORIZED, $glueErrorTransfer->getStatus());
         $this->assertSame(OauthBackendApiConfig::RESPONSE_DETAIL_MISSING_ACCESS_TOKEN, $glueErrorTransfer->getMessage());
     }
 

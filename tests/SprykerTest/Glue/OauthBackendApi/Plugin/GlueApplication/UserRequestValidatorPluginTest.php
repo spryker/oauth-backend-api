@@ -78,7 +78,27 @@ class UserRequestValidatorPluginTest extends Unit
         $this->assertFalse($result->getIsValid());
         $glueErrorTransfer = $result->getErrors()->getArrayCopy()[0];
         $this->assertSame(OauthBackendApiConfig::RESPONSE_CODE_ACCESS_CODE_INVALID, $glueErrorTransfer->getCode());
-        $this->assertSame(Response::HTTP_BAD_REQUEST, $glueErrorTransfer->getStatus());
+        $this->assertSame(Response::HTTP_UNAUTHORIZED, $glueErrorTransfer->getStatus());
+        $this->assertSame(OauthBackendApiConfig::RESPONSE_DETAIL_INVALID_ACCESS_TOKEN, $glueErrorTransfer->getMessage());
+    }
+
+    public function testValidateReturnsUnauthorizedWhenTokenPresentButUserNotResolved(): void
+    {
+        // Arrange
+        $glueRequestTransfer = (new GlueRequestTransfer())
+            ->setMeta(['authorization' => [0 => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9']])
+            ->setRequestUser(null);
+
+        // Act
+        $result = (new UserRequestValidatorPlugin())->validate($glueRequestTransfer);
+
+        // Assert
+        $this->assertFalse($result->getIsValid());
+        $this->assertSame(Response::HTTP_UNAUTHORIZED, $result->getStatus());
+
+        $glueErrorTransfer = $result->getErrors()->getArrayCopy()[0];
+        $this->assertSame(Response::HTTP_UNAUTHORIZED, $glueErrorTransfer->getStatus());
+        $this->assertSame(OauthBackendApiConfig::RESPONSE_CODE_ACCESS_CODE_INVALID, $glueErrorTransfer->getCode());
         $this->assertSame(OauthBackendApiConfig::RESPONSE_DETAIL_INVALID_ACCESS_TOKEN, $glueErrorTransfer->getMessage());
     }
 }

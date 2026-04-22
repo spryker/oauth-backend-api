@@ -45,7 +45,7 @@ class UserRequestValidator implements UserRequestValidatorInterface
         if ($this->headerAuthorizationExist($glueRequestTransfer) && $glueRequestTransfer->getRequestUser() === null) {
             return $glueRequestValidationTransfer
                 ->setIsValid(false)
-                ->setStatus(Response::HTTP_BAD_REQUEST)
+                ->setStatus(Response::HTTP_UNAUTHORIZED)
                 ->addError($this->createGlueError());
         }
 
@@ -75,7 +75,7 @@ class UserRequestValidator implements UserRequestValidatorInterface
     protected function createGlueError(): GlueErrorTransfer
     {
         return (new GlueErrorTransfer())
-            ->setStatus(Response::HTTP_BAD_REQUEST)
+            ->setStatus(Response::HTTP_UNAUTHORIZED)
             ->setCode(OauthBackendApiConfig::RESPONSE_CODE_ACCESS_CODE_INVALID)
             ->setMessage(OauthBackendApiConfig::RESPONSE_DETAIL_INVALID_ACCESS_TOKEN);
     }

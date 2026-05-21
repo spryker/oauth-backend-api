@@ -31,6 +31,14 @@ class UserRequestBuilderPluginTest extends Unit
     protected const JWT_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ7XCJpZF91c2VyXCI6MSwgXCJ1dWlkXCI6XCJ0ZXN0XCJ9IiwiaWF0IjoxNTE2MjM5MDIyfQ.MyyguYSEdNLjbe-CoBG_HetocStir-cw1WGK3cchDRc';
 
     /**
+     * JWT where sub claim is a plain numeric string, not a JSON-encoded object.
+     * Triggers `json_decode("1234567890", true)` returning int instead of array.
+     *
+     * @var string
+     */
+    protected const JWT_TOKEN_WITH_NON_JSON_OBJECT_SUB = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+
+    /**
      * @var int
      */
     protected const SURROGATE_IDENTIFIER = 1;
@@ -58,6 +66,18 @@ class UserRequestBuilderPluginTest extends Unit
     {
         // Arrange
         $glueRequestTransfer = (new GlueRequestTransfer())->setMeta(['authorization' => [0 => 'Bearer invalid']]);
+
+        // Act
+        $glueRequestTransfer = (new UserRequestBuilderPlugin())->build($glueRequestTransfer);
+
+        // Assert
+        $this->assertEmpty($glueRequestTransfer->getRequestUser());
+    }
+
+    public function testUserRequestBuilderReturnsEmptyRequestUserWhenJwtSubClaimIsNotJsonObject(): void
+    {
+        // Arrange
+        $glueRequestTransfer = (new GlueRequestTransfer())->setMeta(['authorization' => [0 => 'Bearer ' . static::JWT_TOKEN_WITH_NON_JSON_OBJECT_SUB]]);
 
         // Act
         $glueRequestTransfer = (new UserRequestBuilderPlugin())->build($glueRequestTransfer);

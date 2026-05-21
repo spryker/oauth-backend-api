@@ -38,7 +38,6 @@ class GlueRequestMapper implements GlueRequestMapperInterface
         OauthAccessTokenDataTransfer $oauthAccessTokenDataTransfer,
         GlueRequestTransfer $glueRequestTransfer
     ): GlueRequestTransfer {
-        /** @var array<string, mixed> $userIdentifier */
         $userIdentifier = $this->utilEncodingService->decodeJson(
             $oauthAccessTokenDataTransfer->getOauthUserIdOrFail(),
             true,

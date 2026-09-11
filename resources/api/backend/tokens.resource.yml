@@ -1,0 +1,75 @@
+resource:
+    name: Tokens
+    shortName: tokens
+    description: 'Issues access tokens for Back Office users and merchant users.'
+
+    processor: Spryker\Glue\OauthBackendApi\Api\Backend\Processor\TokensBackendProcessor
+    paginationEnabled: false
+
+    operations:
+        - type: Post
+          uriTemplate: '/token'
+          description: 'Issues an access token for a Back Office user or a merchant user. The scopes carried by the token identify the user type.'
+          normalizationContext:
+              gen_id: false
+          openapiContext:
+              summary: 'Issue an access token'
+              responses:
+                  201:
+                      description: 'An access token and refresh token pair.'
+                  401:
+                      description: 'The credentials are invalid.'
+                  422:
+                      description: 'The username or the password is missing.'
+
+    properties:
+        username:
+            type: string
+            writable: true
+            readable: false
+            required: true
+            description: 'Back Office user or merchant user name'
+            openapiContext:
+                example: 'admin@spryker.com'
+
+        password:
+            type: string
+            writable: true
+            readable: false
+            required: true
+            description: 'Back Office user or merchant user password'
+            openapiContext:
+                example: 'change123'
+
+        accessToken:
+            type: string
+            writable: false
+            readable: true
+            identifier: true
+            description: 'JWT access token for authenticating subsequent API requests'
+            openapiContext:
+                example: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9...'
+
+        tokenType:
+            type: string
+            writable: false
+            readable: true
+            description: 'Token type, always Bearer for OAuth 2.0'
+            openapiContext:
+                example: 'Bearer'
+
+        expiresIn:
+            type: integer
+            writable: false
+            readable: true
+            description: 'Token lifetime in seconds from issuance'
+            openapiContext:
+                example: 3600
+
+        refreshToken:
+            type: string
+            writable: false
+            readable: true
+            description: 'Token used to obtain a new access token through the refresh-tokens resource when the current one expires'
+            openapiContext:
+                example: 'def50200a1b2c3d4e5f6789012345678901234567890abcdef...'

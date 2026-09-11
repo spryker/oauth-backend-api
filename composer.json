@@ -16,11 +16,13 @@
         "spryker/util-encoding": "^2.0.0"
     },
     "require-dev": {
+        "spryker/api-platform": "*",
         "spryker/code-sniffer": "*",
         "spryker/glue-application": "*",
         "spryker/testify": "*"
     },
     "suggest": {
+        "spryker/api-platform": "Use this package when you want to use the API Platform code.",
         "spryker/glue-application": "ADD SUGGEST DESCRIPTION"
     },
     "autoload": {

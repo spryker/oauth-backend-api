@@ -14,6 +14,8 @@
         <property name="grantType" type="string" description="The method by which an application gets an access token (e.g., 'password', 'refresh_token')."/>
         <property name="username" type="string" description="The login name for a user account, typically an email address."/>
         <property name="password" type="string" description="The password for a user account, used for authentication."/>
+        <property name="refreshToken" type="string"/>
+        <property name="scope" type="string"/>
     </transfer>
 
     <transfer name="GlueResponse">

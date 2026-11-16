@@ -20,19 +20,10 @@ class RequestBuilder implements RequestBuilderInterface
      */
     protected const JWT_PAYLOAD_INDEX = 1;
 
-    /**
-     * @var \Spryker\Glue\OauthBackendApi\Dependency\Service\OauthBackendApiToOauthServiceInterface
-     */
     protected OauthBackendApiToOauthServiceInterface $oauthService;
 
-    /**
-     * @var \Spryker\Glue\OauthBackendApi\Processor\Mapper\GlueRequestMapperInterface
-     */
     protected GlueRequestMapperInterface $glueRequestMapper;
 
-    /**
-     * @var \Spryker\Glue\OauthBackendApi\Processor\Extractor\AccessTokenExtractorInterface
-     */
     protected AccessTokenExtractorInterface $accessTokenExtractor;
 
     public function __construct(

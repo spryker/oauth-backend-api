@@ -78,8 +78,6 @@ class BackendApiAccessTokenValidator implements BackendApiAccessTokenValidatorIn
 
     /**
      * @param array<string> $accessTokenData
-     *
-     * @return \Generated\Shared\Transfer\OauthAccessTokenValidationResponseTransfer
      */
     protected function validateAccessToken(array $accessTokenData): OauthAccessTokenValidationResponseTransfer
     {

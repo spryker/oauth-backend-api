@@ -75,8 +75,6 @@ class OauthBackendApiConfig extends AbstractBundleConfig
      * @api
      *
      * @deprecated Will be removed in next major. Becomes default behavior.
-     *
-     * @return bool
      */
     public function isConventionalResponseCodeEnabled(): bool
     {

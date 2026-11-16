@@ -47,11 +47,6 @@ class TokenResourceController extends AbstractBackendApiController
      *          }
      *     }
      * })
-     *
-     * @param \Generated\Shared\Transfer\ApiTokenAttributesTransfer $apiTokenAttributesTransfer
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueResponseTransfer
      */
     public function postAction(
         ApiTokenAttributesTransfer $apiTokenAttributesTransfer,

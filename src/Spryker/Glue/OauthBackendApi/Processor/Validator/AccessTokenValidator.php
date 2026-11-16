@@ -87,8 +87,6 @@ class AccessTokenValidator implements AccessTokenValidatorInterface
 
     /**
      * @param array<string> $accessTokenData
-     *
-     * @return \Generated\Shared\Transfer\OauthAccessTokenValidationResponseTransfer
      */
     protected function validateAccessToken(array $accessTokenData): OauthAccessTokenValidationResponseTransfer
     {

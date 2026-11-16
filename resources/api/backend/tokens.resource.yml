@@ -21,6 +21,8 @@ resource:
                       description: 'The credentials are invalid.'
                   422:
                       description: 'The username or the password is missing.'
+                  429:
+                      description: 'Too many login attempts for the user account or from the client IP (code 4401); the login is temporarily blocked.'
 
     properties:
         username:

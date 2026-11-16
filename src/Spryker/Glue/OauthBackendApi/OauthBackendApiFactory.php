@@ -38,8 +38,6 @@ class OauthBackendApiFactory extends AbstractBackendApiFactory
 {
     /**
      * @deprecated Use {@link \Spryker\Glue\OauthBackendApi\OauthBackendApiFactory::createBackendApiAccessTokenValidator()} instead.
-     *
-     * @return \Spryker\Glue\OauthBackendApi\Processor\Validator\AccessTokenValidatorInterface
      */
     public function createAccessTokenValidator(): AccessTokenValidatorInterface
     {
@@ -77,8 +75,6 @@ class OauthBackendApiFactory extends AbstractBackendApiFactory
 
     /**
      * @deprecated Use {@link \Spryker\Glue\OauthBackendApi\OauthBackendApiFactory::createRequestBuilder()} instead.
-     *
-     * @return \Spryker\Glue\OauthBackendApi\Processor\RequestBuilder\UserRequestBuilderInterface
      */
     public function createUserRequestBuilder(): UserRequestBuilderInterface
     {

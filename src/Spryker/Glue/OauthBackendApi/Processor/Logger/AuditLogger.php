@@ -51,7 +51,6 @@ class AuditLogger implements AuditLoggerInterface
 
     /**
      * @param array<string, mixed> $context
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
      *
      * @return array<string, mixed>
      */
@@ -63,10 +62,7 @@ class AuditLogger implements AuditLoggerInterface
     }
 
     /**
-     * @param string $action
      * @param array<string, mixed> $context
-     *
-     * @return void
      */
     protected function addAuditLog(string $action, array $context): void
     {

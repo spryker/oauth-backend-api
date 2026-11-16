@@ -24,9 +24,6 @@ class GlueRequestMapper implements GlueRequestMapperInterface
      */
     protected const KEY_ID_USER = 'id_user';
 
-    /**
-     * @var \Spryker\Glue\OauthBackendApi\Dependency\Service\OauthBackendApiToUtilEncodingServiceInterface
-     */
     protected OauthBackendApiToUtilEncodingServiceInterface $utilEncodingService;
 
     public function __construct(OauthBackendApiToUtilEncodingServiceInterface $utilEncodingService)

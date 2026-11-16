@@ -13,8 +13,6 @@ use Spryker\Glue\OauthBackendApi\OauthBackendApiConfig;
 class BackendAccessTokenExtractor implements BackendAccessTokenExtractorInterface
 {
     /**
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
      * @return array<string>|null
      */
     public function extract(GlueRequestTransfer $glueRequestTransfer): ?array
@@ -33,8 +31,6 @@ class BackendAccessTokenExtractor implements BackendAccessTokenExtractorInterfac
     }
 
     /**
-     * @param string $authorizationToken
-     *
      * @return array<string>|null
      */
     protected function extractTokenData(string $authorizationToken): ?array

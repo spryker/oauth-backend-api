@@ -12,8 +12,6 @@ use Generated\Shared\Transfer\GlueRequestTransfer;
 interface BackendAccessTokenExtractorInterface
 {
     /**
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
      * @return array<string>|null
      */
     public function extract(GlueRequestTransfer $glueRequestTransfer): ?array;

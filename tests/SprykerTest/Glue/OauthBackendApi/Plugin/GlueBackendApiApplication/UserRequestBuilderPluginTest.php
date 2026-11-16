@@ -48,9 +48,6 @@ class UserRequestBuilderPluginTest extends Unit
      */
     protected const NATURAL_IDENTIFIER = 'test';
 
-    /**
-     * @var \SprykerTest\Glue\OauthBackendApi\OauthBackendApiTester
-     */
     protected OauthBackendApiTester $tester;
 
     public function testUserRequestBuilderReturnsEmptyRequestUserWhenAuthorizationTokenNotProvided(): void

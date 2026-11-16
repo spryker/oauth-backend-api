@@ -10,10 +10,7 @@ namespace Spryker\Glue\OauthBackendApi\Dependency\Service;
 interface OauthBackendApiToUtilEncodingServiceInterface
 {
     /**
-     * @param string $jsonValue
      * @param bool $assoc Deprecated: `false` is deprecated, always use `true` for array return.
-     * @param int|null $depth
-     * @param int|null $options
      *
      * @return array<mixed>|null
      */

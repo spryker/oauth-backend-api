@@ -51,9 +51,6 @@ class TokenResourceControllerTest extends Unit
     }
 
     /**
-     * @param string $expectedMessage
-     * @param bool $isValidOauthResponse
-     *
      * @return \Spryker\Glue\OauthBackendApi\Controller\TokenResourceController|\PHPUnit\Framework\MockObject\MockObject
      */
     protected function getTokenResourceControllerMock(
@@ -71,9 +68,6 @@ class TokenResourceControllerTest extends Unit
     }
 
     /**
-     * @param string $expectedMessage
-     * @param bool $isValidOauthResponse
-     *
      * @return \Spryker\Glue\OauthBackendApi\OauthBackendApiFactory|\PHPUnit\Framework\MockObject\MockObject
      */
     protected function getOauthBackendApiFactoryMock(
@@ -91,8 +85,6 @@ class TokenResourceControllerTest extends Unit
     }
 
     /**
-     * @param string $expectedMessage
-     *
      * @return \Spryker\Glue\OauthBackendApi\Processor\Logger\AuditLogger|\PHPUnit\Framework\MockObject\MockObject
      */
     protected function getAuditLoggerMock(string $expectedMessage): AuditLogger
@@ -108,8 +100,6 @@ class TokenResourceControllerTest extends Unit
     }
 
     /**
-     * @param string $expectedMessage
-     *
      * @return \Psr\Log\LoggerInterface|\PHPUnit\Framework\MockObject\MockObject
      */
     protected function getLoggerMock(string $expectedMessage): LoggerInterface
@@ -121,8 +111,6 @@ class TokenResourceControllerTest extends Unit
     }
 
     /**
-     * @param bool $isValidOauthResponse
-     *
      * @return \Spryker\Glue\OauthBackendApi\Dependency\Facade\OauthBackendApiToAuthenticationFacadeBridge|\PHPUnit\Framework\MockObject\MockObject
      */
     protected function getAuthenticationFacadeMock(bool $isValidOauthResponse): OauthBackendApiToAuthenticationFacadeBridge
